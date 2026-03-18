@@ -13,8 +13,24 @@ use App\Http\Middleware\LogAcessoMiddleware;
 |
 */
 
-Route::get('/', [App\Http\Controllers\Principal::class, 'principal']);
+Route::get('/', [App\Http\Controllers\Principal::class, 'principal'])->name('pagina-inicial');
 
+Route::prefix('public')->group(function(){
+
+    Route::get('/contato/{nome}', [App\Http\Controllers\Principal::class, 'contato']);
+    Route::get('/contato/{nome}/{sobrenome}', [App\Http\Controllers\Principal::class, 'contatoNomeCompleto']);
+    Route::get('/contato/{nome}/{sobrenome}/{assunto}', [App\Http\Controllers\Principal::class, 'assunto']);
+    Route::get('/contato/{nome}/{sobrenome}/{assunto}/{email}/{telefone?}', [App\Http\Controllers\Principal::class, 'mensagem']);
+
+});
+
+
+
+
+Route::fallback(function(){
+    echo "A rota acessada não existe";
+    echo "<a href='" . route('pagina-inicial') . "'>Voltar</a>";
+});
 
 
 
