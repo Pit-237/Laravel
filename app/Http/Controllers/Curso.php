@@ -8,9 +8,9 @@ class Curso extends Controller
 {
     function show() { 
             $cursos = [
-                (Object) ['nome'=>'PHP', 'periodo'=>'40 horas'],
-                (Object) ['nome'=>'JavaScript', 'periodo'=>'30 horas'],
-                (Object) ['nome'=>'Python', 'periodo'=>'50 horas']
+                (Object) ['nome'=>'Desenvolvimento de Sistemas', 'periodo'=>'Madrugada'],
+                (Object) ['nome'=>'Design Grafico', 'periodo'=>'Tarde'],
+                (Object) ['nome'=>'Quality Assurance', 'periodo'=>'Manhã']
             ];
         return view('curso', compact('cursos'));
     }
