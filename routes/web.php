@@ -34,6 +34,9 @@ Route::prefix('/curso')->group(function(){
 Route::prefix('/professor')->group(function(){
     Route::get('/index', [App\Http\Controllers\ProfessorController::class, 'index'])->name('professor.index');
     Route::post('/add', [App\Http\Controllers\ProfessorController::class, 'add'])->name('professor.add');
+    Route::get('/remove/{id}', [App\Http\Controllers\ProfessorController::class, 'remove'])->name('professor.remove');
+    Route::get('/atualizar/{id}', [App\Http\Controllers\ProfessorController::class, 'atualizar'])->name('professor.atualizar');
+    Route::post('/save', [App\Http\Controllers\ProfessorController::class, 'save'])->name('professor.save');
 });
 
 Route::prefix('/componente')->group(function(){
