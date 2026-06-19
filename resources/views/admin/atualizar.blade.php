@@ -5,25 +5,25 @@
         <input type="hidden" name="id" value="{{ $admin->id }}">
 
         <label for="nome">Nome</label>
-        <input type="text" name="nome" id="nome" value="{{ $admin->nome }}">
+        <input type="text" name="nome" id="nome" value="{{ $admin->nome }}"> <p>
 
-        <label for="nome">Email</label>
-        <input type="text" name="nome" id="nome" value="{{ $admin->nome }}">
+        <label for="email">Email</label>
+        <input type="text" name="email" id="email" value="{{ $admin->email }}"><p>
 
-        <label for="nome">Telefone</label>
-        <input type="text" name="nome" id="nome" value="{{ $admin->nome }}">
+        <label for="telefone">Telefone</label>
+        <input type="text" name="telefone" id="telefone" value="{{ $admin->telefone }}"><p>
 
-        <label for="nome">CPF</label>
-        <input type="text" name="nome" id="nome" value="{{ $admin->nome }}">
+        <label for="cpf">CPF</label>
+        <input type="text" name="cpf" id="cpf" value="{{ $admin->cpf }}"><p>
 
-        <label for="nome">usuario</label>
-        <input type="text" name="nome" id="nome" value="{{ $admin->nome }}">
+        <label for="usuario">Usuario</label>
+        <input type="text" name="usuario" id="usuario" value="{{ $admin->usuario }}"><p>
 
-        <label for="nome">Senha</label>
-        <input type="text" name="nome" id="nome" value="{{ $admin->nome }}">
+        <label for="senha">Senha</label>
+        <input type="text" name="senha" id="senha" value="{{ $admin->senha }}"><p>
 
-        <label for="nome">Status</label>
-        <input type="text" name="nome" id="nome" value="{{ $admin->nome }}">
+        <label for="status">Status</label>
+        <input type="text" name="status" id="status" value="{{ $admin->status }}">
 
         <button type="submit">Salvar</button>
         @isset($success)
