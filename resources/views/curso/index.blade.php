@@ -13,11 +13,20 @@
         @isset($success)
             <h1>{{ $success }}</h1>
         @endisset
+
+        @if($errors->any())
+            <ul>
+                @foreach($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        @endif
     </form>
 
     <table border="1">
         <tr>
             <td>Nome do Curso</td>
+            <td>Periodo</td>
             <td colspan="2">Ações</td>
         </tr>
         @isset($cursos)
@@ -25,6 +34,9 @@
                     <tr>
                         <td>
                             <h3>{{ $curso->nome }}</h3>
+                        </td>
+                        <td>
+                            <h3>{{ $curso->periodo }}</h3>
                         </td>
                         <td>
                         <form action="{{ route('curso.remove', ['id' => $curso->id]) }}" method="GET">

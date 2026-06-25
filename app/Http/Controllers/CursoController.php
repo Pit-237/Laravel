@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class CursoController extends Controller
 {
@@ -11,11 +12,34 @@ class CursoController extends Controller
     }
 
     function add(Request $dados) { 
+        $validator = Validator::make(
+		      $dados->all(),
+	            [
+	                'nome' => 'required|min:3|max:255',
+                    'periodo' => 'required',
+	            ],
+	            [
+	                'nome.required' => 'O campo nome é obrigatório.',
+	                'nome.min' => 'O campo nome deve conter no mínimo 3 caracteres.',
+	                'nome.max' => 'O campo nome deve conter no máximo 255 caracteres.',
+
+                    'periodo.required' => 'O campo periodo é obrigatório.',
+	            ]
+        );
+
+        if ($validator->fails()) {
+            return redirect()
+                ->route('curso.index')
+                ->withErrors($validator)
+                ->withInput();
+        }
+        
+
+
         $curso = new \App\Models\CursoModel();
         $curso::create($dados->all());
 
         //RECUPERANDO TODOS ALUNOS DO BANCO E ENVIANDO PARA A VIEW
-				
         $cursos = new \App\Models\CursoModel();
 
         return view('curso.index', ['success'=>'Cadastrado!', 'cursos'=>$cursos::all()]);
